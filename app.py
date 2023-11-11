@@ -31,23 +31,27 @@ def load_img(path_to_img):
   img = tf.image.resize(img, new_shape)
   img = img[tf.newaxis, :]
   return img
-hub_model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
-content_image = load_img('files\input\input.jpeg')
-style_image = load_img('files\input\starrynight.jpg')
-stylized_image = hub_model(tf.constant(content_image), tf.constant(style_image))[0]
-tensor_to_image(stylized_image)
-# app = Flask(__name__)
-# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-# @app.route('/')
-# def index():
+@app.route('/', methods=['GET', 'POST'])
+def index():
 
-#     if request.method == 'POST':
-#         file = request.files['file']
-#         filename = file.filename
-#         file.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename)))
+    if request.method == 'POST':
+        file = request.files['file']
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename)))
+        hub_model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
+        content_image = load_img('files\input\input.jpeg')
+        style_image = load_img('files\input\starrynight.jpg')
+        stylized_image = hub_model(tf.constant(content_image), tf.constant(style_image))[0]
+        tensor_to_image(stylized_image)
+        stylized_image.save('files\output\output.jpeg')
+    return render_template('index.html')
 
 
 
-        
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0')
