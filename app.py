@@ -4,14 +4,16 @@ import random
 from frame import frame
 from reframe import reframe
 from main import main, load_img, video_main
-from dele_f import file_del
+from dele_f import delete_files
 
-file_del()
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    
+    if os.path.isfile('static/files/input/input.jpeg'):
+                os.remove(os.path.join('static/files/input/input.jpeg'))
     li = ['starry',  'wave', 'picasso', 'sunflower']
 
     if request.method == 'POST':
@@ -28,6 +30,8 @@ def index():
 
         except:
             return render_template('index.html', error='Please upload a file')
+    else:
+        delete_files('static/files/output')
         
         
     return render_template('index.html')
@@ -36,8 +40,12 @@ def index():
 @app.route('/video', methods=['GET', 'POST'])
 def video():
 
-
+    if os.path.isfile('static/files/input/input.jpeg'):
+                os.remove(os.path.join('static/files/input/input.jpeg'))
     if request.method == 'POST':
+        delete_files('static/files/output/video')
+        delete_files('static/files/output/format_video')
+
         file = request.files['file']
         try:
             file.save('./static/files/input/input_video.mp4')
@@ -59,7 +67,10 @@ def video():
 
         except:
             return render_template('video.html', error='Please upload the video')
-        
+    else:
+        delete_files('static/files/output/video')
+        delete_files('static/files/output/format_video')
+        delete_files('static/files/output')
         
     return render_template('video.html')
 
