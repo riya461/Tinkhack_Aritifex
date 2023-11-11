@@ -12,8 +12,6 @@ li = ['starry',  'wave', 'picasso', 'sunflower']
 @app.route('/', methods=['GET', 'POST'])
 def index():
     context=False
-    if os.path.isfile('static/files/input/input.jpeg'):
-        os.remove(os.path.join('static/files/input/input.jpeg'))
 
     if request.method == 'POST':
         file = request.files['file']
@@ -40,9 +38,6 @@ def index():
 @app.route('/video', methods=['GET', 'POST'])
 def video():
     context = False
-
-    if os.path.isfile('static/files/input/input_video.mp4'):
-                os.remove(os.path.join('static/files/input/input_video.mp4'))
 
     if request.method == 'POST':
         delete_files('static/files/output/video')
