@@ -1,6 +1,6 @@
 import os 
 from flask import Flask, render_template, request
-
+import random
 from frame import frame
 from main import main, load_img, video_main
 
@@ -9,15 +9,19 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-
+    li = ['starry',  'wave', 'picasso', 'sunflower']
 
     if request.method == 'POST':
         file = request.files['file']
+        option = request.form['dropdown']
+        print(option)
         try:
             file.save('./static/files/input/input.jpeg')
             content_image = load_img('static/files/input/input.jpeg')
-
-            main(content_image=content_image)
+            if(option=='random'):
+                option = random.choice(li)
+                
+            main(content_image=content_image,option=option)
 
         except:
             return render_template('index.html', error='Please upload a file')

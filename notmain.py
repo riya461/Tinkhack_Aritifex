@@ -23,7 +23,7 @@ def tensor_to_image(tensor):
     tensor = tensor[0]
   return PIL.Image.fromarray(tensor)
 content_path = 'static/files/input/input.jpeg'
-style_path = 'static/files/input/starrynight.jpg'
+style_path = 'static/files/input/starry.jpg'
 def load_img(path_to_img):
   max_dim = 512
   img = tf.io.read_file(path_to_img)

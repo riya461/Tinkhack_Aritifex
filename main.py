@@ -28,9 +28,9 @@ def load_img(path_to_img):
   return img
 
 
-def main(content_image):
+def main(content_image,option):
     hub_model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
-    style_image = load_img('static/files/input/styleimg/starrynight.jpg')
+    style_image = load_img('static/files/input/styleimg/{}.jpg'.format(option))
     stylized_image = hub_model(tf.constant(content_image), tf.constant(style_image))[0]
     img = tensor_to_image(stylized_image)
     img.save('static/files/output/output.jpeg')
@@ -38,7 +38,7 @@ def main(content_image):
 def video_main(content_image,i):
     print("Entered video main")
     hub_model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
-    style_image = load_img('static/files/input/styleimg/starrynight.jpg')
+    style_image = load_img('static/files/input/styleimg/starry.jpg')
     stylized_image = hub_model(tf.constant(content_image), tf.constant(style_image))[0]
     img = tensor_to_image(stylized_image)
     print("val")
