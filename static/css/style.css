@@ -57,7 +57,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
-#preview{
+#preview,#output{
     max-width: 100%;
     height: auto;
 }
