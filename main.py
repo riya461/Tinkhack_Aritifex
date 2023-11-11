@@ -26,9 +26,10 @@ def load_img(path_to_img):
   img = tf.image.resize(img, new_shape)
   img = img[tf.newaxis, :]
   return img
-def main():
+
+
+def main(content_image):
     hub_model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
-    content_image = load_img('static/files/input/input.jpeg')
     style_image = load_img('static/files/input/starrynight.jpg')
     stylized_image = hub_model(tf.constant(content_image), tf.constant(style_image))[0]
     img = tensor_to_image(stylized_image)
