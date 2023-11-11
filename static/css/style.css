@@ -62,3 +62,10 @@ input[type="submit"]:hover {
 .choose{
     font-family: 'Inria Sans', sans-serif;
 }
+body {
+    background-image: url("../../files/background/background.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
