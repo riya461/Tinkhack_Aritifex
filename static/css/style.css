@@ -57,13 +57,13 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
-#preview{
+#preview,#output{
     max-width: 100%;
     height: auto;
 }
 
 body {
-    background-image: url("../../files/background/background.png");
+    background-image: url("../img/background.png");
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
