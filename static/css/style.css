@@ -31,6 +31,10 @@ label {
     margin-bottom: 10px;
 }
 
+input[type="file"]::-webkit-file-upload-button{
+    font-family: Inria Sans, sans-serif;
+}
+
 input[type="file"] {
     font-family: 'Inria Sans', sans-serif;  
     border: 1px solid #ccc;
@@ -51,4 +55,8 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+.choose{
+    font-family: 'Inria Sans', sans-serif;
 }
