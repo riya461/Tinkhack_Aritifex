@@ -24,7 +24,7 @@ def frame():
     
     print(clip.duration)
     
-    times =[i/(10) for i in range(int(10*clip.duration))]
+    times =[i/(15) for i in range(int(15*clip.duration))]
 
     extract_frames(movie,times,video)
 
