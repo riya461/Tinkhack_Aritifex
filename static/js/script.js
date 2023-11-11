@@ -1,6 +1,6 @@
 function previewImage(input) {
     var preview = document.getElementById('preview');
-    var imagePreview = document.getElementById('imagePreview');
+    var imagePreview = document.querySelector('.previewDiv');
 
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -13,3 +13,5 @@ function previewImage(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+// function outputImage()

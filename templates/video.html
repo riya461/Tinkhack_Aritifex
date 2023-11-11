@@ -1,23 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/css/stylev.css" />
+  <title>Artifex</title>
 </head>
+
 <body>
-    <h1>Video Upload Form</h1>
-
-    <form action="/video" method="post" enctype="multipart/form-data">
-        <label for="imageUpload">Choose an image:</label>
-        <input type="file" id="imageUpload" name="file"  >
-        <br>
-        <input type="submit" value="Upload Video">
-        
+  <!-- <h1>Image Upload Form</h1> -->
+  <div class="pics">
+    <form action="/video" method="post" enctype="multipart/form-data" class="form1">
+      <div class="Input">
+      <div class="choose">
+        <!-- <label for="imageUpload">Choose an image:</label> -->
+        <input type="file" id="mediaUpload" name="file" accept="image/*,video/*,audio/*"
+        onchange="previewMedia(this)" />
+        <br />
+        <!-- <label for="randomValues">Select a style:</label> -->
+        <select id="dropdown" name="dropdown" onchange="updatePlaceholder(this)">
+          <option value="random" selected>Randomise</option>
+          <option value="starry">The Starry Night by Van Gogh</option>
+          <option value="wave">The Great Wave Off Kanagawa by Hokusai</option>
+          <option value="picasso">Guernica by Picasso</option>
+          <option value="sunflower">Sunflowers by Van Gogh</option>
+        </select>
+      </div>
+      <br />
+      <input type="submit" value="" />
+    </div>
+      <div class="box3">
+        <a href="../static/files/output/output.mp4" download="downloaded_file.mp4">
+          <button type="button" class="download">DOWNLOAD FILE</button>
+        </a>
+      </div>
     </form>
-    
-    
+   
+    <div class="images">
 
-    <script src="../static/js/script.js"></script>
+      <div class="previewDiv">
+        <!-- <h2>Uploaded Image Preview</h2> -->
+        <video id="preview-container" src="" alt="Media Preview"></video>
+      </div>
+
+      <div class="outputDiv">
+        <video id="output-container" src="../static/files/output/my_video.mp4"></video>
+      </div>
+    </div>
+    
+  </div>
+
+
+  <script src="../static/js/scriptv.js"></script>
 </body>
+
 </html>
