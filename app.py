@@ -10,12 +10,14 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
+
     if request.method == 'POST':
         file = request.files['file']
-        filename = file.filename
-        file.save('./static/files/input/input.jpeg')
-        if filename.endswith('.jpeg') :
-            main()
+        try:
+            file.save('./static/files/input/input.jpeg')
+        except:
+            return render_template('index.html', error='Please upload a file')
+        main()
         
         
     return render_template('index.html')
