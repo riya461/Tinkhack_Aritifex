@@ -1,7 +1,7 @@
 import os
 import moviepy.video.io.ImageSequenceClip
 image_folder='static/files/output/format_video'
-fps=6
+fps=30
 
 image_files = [os.path.join(image_folder,img)
                for img in os.listdir(image_folder)
