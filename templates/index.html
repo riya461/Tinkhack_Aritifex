@@ -1,57 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>Artifex</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../static/css/style.css" />
-  <title>Artifex</title>
-</head>
+  <body>
+    <!-- <h1>Image Upload Form</h1> -->
+    <div class="pics">
+      <form
+        action="/"
+        method="post"
+        enctype="multipart/form-data"
+        class="form1"
+      >
+        <div class="Input">
+          <div class="choose">
+            <!-- <label for="imageUpload">Choose an image:</label> -->
+            <input
+              type="file"
+              id="imageUpload"
+              name="file"
+              accept="image/*"
+              onchange="previewImage(this)"
+            />
+            <br />
+            <!-- <label for="randomValues">Select a style:</label> -->
+            <select
+              id="dropdown"
+              name="dropdown"
+              onchange="updatePlaceholder(this)"
+            >
+              <option value="random" selected>Randomize</option>
+              <option value="starry">The Starry Night by Van Gogh</option>
+              <option value="wave">
+                The Great Wave Off Kanagawa by Hokusai
+              </option>
+              <option value="picasso">Guernica by Picasso</option>
+              <option value="sunflower">Sunflowers by Van Gogh</option>
+            </select>
+          </div>
+          <br />
+          <input type="submit" value="" />
+        </div>
+        {%if context==True%}
+        <div class="box3">
+          <a
+            href="../static/files/output/output.jpeg"
+            download="downloaded_file.jpeg"
+          >
+            <button type="button" class="download">DOWNLOAD FILE</button>
+          </a>
+        </div>
+        {%endif%}
+      </form>
 
-<body>
-  <!-- <h1>Image Upload Form</h1> -->
-  <div class="pics">
-    <form action="/" method="post" enctype="multipart/form-data" class="form1">
-      <div class="Input">
-      <div class="choose">
-        <!-- <label for="imageUpload">Choose an image:</label> -->
-        <input type="file" id="imageUpload" name="file" accept="image/*" onchange="previewImage(this)" />
-        <br />
-        <!-- <label for="randomValues">Select a style:</label> -->
-        <select id="dropdown" name="dropdown" onchange="updatePlaceholder(this)">
-          <option value="random" selected>Randomise</option>
-          <option value="starry">The Starry Night by Van Gogh</option>
-          <option value="wave">The Great Wave Off Kanagawa by Hokusai</option>
-          <option value="picasso">Guernica by Picasso</option>
-          <option value="sunflower">Sunflowers by Van Gogh</option>
-        </select>
-      </div>
-      <br />
-      <input type="submit" value="" />
-    </div>
-      <div class="box3">
-        <a href="../static/files/output/output.jpeg" download="downloaded_file.jpeg">
-          <button type="button" class="download">DOWNLOAD FILE</button>
-        </a>
-      </div>
-    </form>
-   
-    <div class="images">
+      <div class="images">
+        <div class="previewDiv">
+          <!-- <h2>Uploaded Image Preview</h2> -->
+          <img id="preview" src="" alt="Image Preview" />
+        </div>
 
-      <div class="previewDiv">
-        <!-- <h2>Uploaded Image Preview</h2> -->
-        <img id="preview" src="" alt="Image Preview" />
-      </div>
-
-      <div class="outputDiv">
-        <img id="output" src="../static/files/output/output.jpeg" alt="" />
+        {%if context==True%}
+        <div class="outputDiv">
+          <img id="output" src="../static/files/output/output.jpeg" alt="" />
+        </div>
+        {%endif%}
       </div>
     </div>
     
-  </div>
 
-
-  <script src="../static/js/script.js"></script>
-</body>
-
+    <script src="../static/js/script.js"></script>
+  </body>
 </html>

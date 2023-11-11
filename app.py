@@ -37,7 +37,7 @@ def index():
         delete_files('static/files/output')
         
         
-    return render_template('index.html', context=True)
+    return render_template('index.html', context=False)
 
 
 @app.route('/video', methods=['GET', 'POST'])
