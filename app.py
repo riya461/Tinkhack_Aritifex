@@ -13,7 +13,7 @@ li = ['starry',  'wave', 'picasso', 'sunflower']
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    
+    context=False
     if os.path.isfile('static/files/input/input.jpeg'):
         os.remove(os.path.join('static/files/input/input.jpeg'))
 
@@ -28,18 +28,21 @@ def index():
                 option = random.choice(li)
                 
             main(content_image=content_image,option=option)
+            return render_template('index.html', context=True)
+
 
         except:
-            return render_template('index.html', error='Please upload a file')
+            return render_template('index.html', error='Please upload a file', context=False)
     else:
         delete_files('static/files/output')
         
         
-    return render_template('index.html')
+    return render_template('index.html', context=True)
 
 
 @app.route('/video', methods=['GET', 'POST'])
 def video():
+    context = False
 
     if os.path.isfile('static/files/input/input_video.mp4'):
                 os.remove(os.path.join('static/files/input/input_video.mp4'))
@@ -68,17 +71,18 @@ def video():
                     i=i+1
                     video_main(i=i,content_image=content_image,option=option)
             reframe()
+            return render_template('video.html', context=True)
 
             
 
         except:
-            return render_template('video.html', error='Please upload the video')
+            return render_template('video.html', error='Please upload the video', context=False)
     else:
         delete_files('static/files/output/video')
         delete_files('static/files/output/format_video')
         delete_files('static/files/output')
         
-    return render_template('video.html')
+    return render_template('video.html', context=False)
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
