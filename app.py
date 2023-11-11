@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request
 import random
 from frame import frame
+from reframe import reframe
 from main import main, load_img, video_main
 
 app = Flask(__name__)
@@ -50,6 +51,7 @@ def video():
                     content_image = load_img(f)
                     i=i+1
                     video_main(i=i,content_image=content_image)
+            reframe()
 
             
 
