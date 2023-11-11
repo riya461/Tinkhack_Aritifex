@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Video Upload Form</h1>
 
     <form action="/video" method="post" enctype="multipart/form-data">
         <label for="imageUpload">Choose an image:</label>
-        <input type="file" id="imageUpload" name="file"  >
+        <input type="file" id="mediaUpload" name="file" accept="image/gif, video/mp4" onchange="previewMedia(this)" />
+
         <br>
         <input type="submit" value="Upload Video">
-        
-    </form>
-    
-    
 
-    <script src="../static/js/script.js"></script>
+    </form>
+
+
+
+    <script src="../static/js/scriptv.js"></script>
 </body>
+
 </html>
