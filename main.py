@@ -35,10 +35,10 @@ def main(content_image,option):
     img = tensor_to_image(stylized_image)
     img.save('static/files/output/output.jpeg')
 
-def video_main(content_image,i):
+def video_main(content_image,i,option):
     print("Entered video main")
     hub_model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
-    style_image = load_img('static/files/styleimg/picasso.jpg')
+    style_image = load_img('static/files/styleimg/{}.jpg'.format(option))
     stylized_image = hub_model(tf.constant(content_image), tf.constant(style_image))[0]
     img = tensor_to_image(stylized_image)
     print("val")
