@@ -29,9 +29,13 @@
       <input type="submit" value="" />
     </div>
       <div class="box3">
+      {% if context == true %}
+
         <a href="../static/files/output/output.jpeg" download="downloaded_file.jpeg">
           <button type="button" class="download">DOWNLOAD FILE</button>
+
         </a>
+        {% endif %}
       </div>
     </form>
    
@@ -41,7 +45,7 @@
         <!-- <h2>Uploaded Image Preview</h2> -->
         <img id="preview" src="" alt="Image Preview" />
       </div>
-      {% if context == 'True' %}
+      {% if context == true %}
       <div class="outputDiv">
         <img id="output" src="../static/files/output/output.jpeg" alt="" />
       </div>
