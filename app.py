@@ -1,8 +1,8 @@
 import os 
 from flask import Flask, render_template, request
 
-
-from main import main, load_img
+from frame import frame
+from main import main, load_img, video_main
 
 app = Flask(__name__)
 
@@ -26,21 +26,31 @@ def index():
     return render_template('index.html')
 
 
-# @app.route('/video', methods=['GET', 'POST'])
-# def video():
+@app.route('/video', methods=['GET', 'POST'])
+def video():
 
 
-#     if request.method == 'POST':
-#         file = request.files['file']
-#         try:
-#             file.save('./static/files/input/input_video.mp4')
-#             frame()
+    if request.method == 'POST':
+        file = request.files['file']
+        try:
+            file.save('./static/files/input/input_video.mp4')
+            frame()
+            directory = 'static/files/output/video'
+            for filename in os.listdir(directory):
+                f = os.path.join(directory, filename)
+                # checking if it is a file
+                print(f)
+                if os.path.isfile(f):
+                    print(f)
+                    video_main(f)
 
-#         except:
-#             return render_template('video.html', error='Please upload the video')
+            
+
+        except:
+            return render_template('video.html', error='Please upload the video')
         
         
-#     return render_template('video.html')
+    return render_template('video.html')
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')

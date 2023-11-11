@@ -1,14 +1,31 @@
 from moviepy.editor import VideoFileClip
 import os
 
+
 def extract_frames(movie,times,video):
-     clip = VideoFileClip(movie)
-     for t in times:
-          imgpath = os.path.join(video, '{}.png'.format(int(t*clip.fps))) 
-          clip.save_frame(imgpath,t)
-          
-movie='static/files/test/input.mp4' 
-video='static/files/output/video' 
-clip = VideoFileClip(movie)
-times =[i/(10) for i in range(int(10*clip.duration))]
-extract_frames(movie,times,video)
+    clip = VideoFileClip(movie)
+    i=0
+    print(clip.duration)
+    d=clip.duration
+    for t in times:
+        i=i+1
+        imgpath = os.path.join(video, '{}.png'.format(i)) 
+        clip.save_frame(imgpath,t)
+
+        
+
+    
+
+def frame():
+    
+    movie='static/files/input/input_video.mp4' 
+    video='static/files/output/video' 
+    clip = VideoFileClip(movie)
+    
+    print(clip.duration)
+    
+    times =[i/(10) for i in range(int(10*clip.duration))]
+
+    extract_frames(movie,times,video)
+
+
