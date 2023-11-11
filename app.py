@@ -4,9 +4,7 @@ import random
 from frame import frame
 from reframe import reframe
 from main import main, load_img, video_main
-from dele_f import delete_files,file_del
-file_del()
-
+from delf import delete_files
 app = Flask(__name__)
 li = ['starry',  'wave', 'picasso', 'sunflower']
 
@@ -33,8 +31,7 @@ def index():
 
         except:
             return render_template('index.html', error='Please upload a file', context=False)
-    else:
-        delete_files('static/files/output')
+    
         
         
     return render_template('index.html', context=False)
@@ -77,10 +74,7 @@ def video():
 
         except:
             return render_template('video.html', error='Please upload the video', context=False)
-    else:
-        delete_files('static/files/output/video')
-        delete_files('static/files/output/format_video')
-        delete_files('static/files/output')
+    
         
     return render_template('video.html', context=False)
 
