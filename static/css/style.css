@@ -131,7 +131,7 @@ input[type="submit"]:hover {
     /* border-radius: 10px; */
     /* background-color: #834d4d; */
     border:solid brown 10px;
-    display: none;
+    /* display: none; */
 }
 
 .outputDiv{
@@ -144,7 +144,7 @@ input[type="submit"]:hover {
     /* border-radius: 10px; */
     border:solid brown 10px;
     /* background-color: #834d4d; */
-    display: none;
+    /* display: none; */
 }
 
 .form1{
