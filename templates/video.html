@@ -30,11 +30,14 @@
       <br />
       <input type="submit" value="" />
     </div>
+    {% if context == true %}
+
       <div class="box3">
         <a href="../static/files/output/output.mp4" download="downloaded_file.mp4">
           <button type="button" class="download">DOWNLOAD FILE</button>
         </a>
       </div>
+      {% endif %}
     </form>
    
     <div class="images">
@@ -43,10 +46,12 @@
         <!-- <h2>Uploaded Image Preview</h2> -->
         <video id="preview-container" src="" alt="Media Preview"></video>
       </div>
+      {% if context == true %}
 
       <div class="outputDiv">
         <video id="output-container" src="../static/files/output/my_video.mp4"></video>
       </div>
+        {% endif %}
     </div>
     
   </div>
