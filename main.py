@@ -28,8 +28,8 @@ def load_img(path_to_img):
   return img
 def main():
     hub_model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
-    content_image = load_img('files\input\input.jpeg')
-    style_image = load_img('files\input\starrynight.jpg')
+    content_image = load_img('static/files/input/input.jpeg')
+    style_image = load_img('static/files/input/starrynight.jpg')
     stylized_image = hub_model(tf.constant(content_image), tf.constant(style_image))[0]
     img = tensor_to_image(stylized_image)
-    img.save('files\output\output.jpeg')
+    img.save('static/files/output/output.jpeg')
