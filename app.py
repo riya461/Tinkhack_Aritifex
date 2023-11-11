@@ -3,10 +3,8 @@ from flask import Flask, render_template, request, redirect
 from werkzeug.utils import secure_filename
 from main import main
 
-UPLOAD_FOLDER = './files/input/'
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -15,8 +13,8 @@ def index():
     if request.method == 'POST':
         file = request.files['file']
         filename = file.filename
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename)))
-        if filename.endswith('.jpg') or filename.endswith('.jpeg') or filename.endswith('.png'):
+        file.save('./static/files/input/input.jpeg')
+        if filename.endswith('.jpeg') :
             main()
         
         
