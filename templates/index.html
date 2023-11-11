@@ -42,10 +42,11 @@
         <!-- <h2>Uploaded Image Preview</h2> -->
         <img id="preview" src="" alt="Image Preview" />
       </div>
-
+      {% if context == 'True' %}
       <div class="outputDiv">
         <img id="output" src="../static/files/output/output.jpeg" alt="" />
       </div>
+        {% endif %}
     </div>
     
   </div>
