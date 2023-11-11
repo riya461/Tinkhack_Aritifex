@@ -4,7 +4,9 @@ import random
 from frame import frame
 from reframe import reframe
 from main import main, load_img, video_main
+from dele_f import file_del
 
+file_del()
 app = Flask(__name__)
 
 
