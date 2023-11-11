@@ -11,7 +11,6 @@ li = ['starry',  'wave', 'picasso', 'sunflower']
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    context=False
 
     if request.method == 'POST':
         file = request.files['file']
@@ -24,20 +23,20 @@ def index():
                 option = random.choice(li)
                 
             main(content_image=content_image,option=option)
-            return render_template('index.html', context=True)
+            return render_template('index.html', context='True')
 
 
         except:
-            return render_template('index.html', error='Please upload a file', context=False)
+            return render_template('index.html', error='Please upload a file', context='False')
     
         
         
-    return render_template('index.html', context=False)
+    return render_template('index.html', context='False')
 
 
 @app.route('/video', methods=['GET', 'POST'])
 def video():
-    context = False
+    
 
     if request.method == 'POST':
         delete_files('static/files/output/video')
@@ -63,15 +62,15 @@ def video():
                     i=i+1
                     video_main(i=i,content_image=content_image,option=option)
             reframe()
-            return render_template('video.html', context=True)
+            return render_template('video.html', context='True')
 
             
 
         except:
-            return render_template('video.html', error='Please upload the video', context=False)
+            return render_template('video.html', error='Please upload the video', context='False')
     
         
-    return render_template('video.html', context=False)
+    return render_template('video.html', context='False')
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
