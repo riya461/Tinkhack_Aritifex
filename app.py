@@ -16,7 +16,9 @@ def index():
         file = request.files['file']
         filename = file.filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename)))
-        main()
+        if filename.endswith('.jpg') or filename.endswith('.jpeg') or filename.endswith('.png'):
+            main()
+        
         
     return render_template('index.html')
 
