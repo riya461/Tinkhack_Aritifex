@@ -36,13 +36,16 @@ def video():
             file.save('./static/files/input/input_video.mp4')
             frame()
             directory = 'static/files/output/video'
+            i=0
             for filename in os.listdir(directory):
                 f = os.path.join(directory, filename)
                 # checking if it is a file
                 print(f)
                 if os.path.isfile(f):
                     print(f)
-                    video_main(f)
+                    content_image = load_img(f)
+                    i=i+1
+                    video_main(i=i,content_image=content_image)
 
             
 
