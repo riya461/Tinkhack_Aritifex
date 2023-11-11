@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inria+Serif:wght@300;400;700&display=swap');
+
 
 body {
-    font-family: 'Lora', serif;
-    /* background:url("../static/img/abstract-hand-painted-background.avif");
+    /* font-family: 'Abril Fatface', serif; */
+    background: url(../../static/img/canvas-texture.avif);
     background-position: center top; 
     background-repeat: repeat;
-    background-size: cover; */
-    background-color: white;
+    background-size: cover;
+    
+    /* background-color: white; */
     margin: 0;
     padding: 0;
     display: flex;
@@ -18,32 +20,43 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
-    font-size: 50px;
-    font-family: 'Lora', serif;
+    color:black;
+    font-size: 60px;
+    font-family: 'Inria Serif', serif;
+    font-weight: bold;
 }
 
 .buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin-top: 20px;
+
 
 }
 
 button {
-    padding: 20px 40px;
-    margin: 15px;
+    padding: 40px 80px;
+    margin: 15px 15px auto;
     font-size: 24px;
     cursor: pointer;
-    border: none;
-    border-radius: 5px;
+    border: solid;
+    border-radius: 20px;
     outline: none;
-    color: #fff;
-    background: linear-gradient(to right, #5d4735, #392b20); /* Dusky brown gradient */
-    transition: background 0.3s ease;
+    color: white;
+    font-family: 'Abril Fatface', serif;
+    background: linear-gradient(to bottom, #705434, #3b2a1e);
+    transition: background 0.5s, color 0.5s;
 }
 
 button:hover {
-    background: linear-gradient(to right, #4c3a2a, #2e2118); /* Darker gradient on hover */
+    background: linear-gradient(to bottom, #3b2a1e, #1f150d); 
+    color: white;
 }
+
+button:active {
+    background: linear-gradient(to bottom, #1f150d, #0d0906); 
+    color: white;
+}
+
+
