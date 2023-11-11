@@ -4,17 +4,18 @@ import random
 from frame import frame
 from reframe import reframe
 from main import main, load_img, video_main
-from dele_f import delete_files
+from dele_f import delete_files,file_del
+file_del()
 
 app = Flask(__name__)
+li = ['starry',  'wave', 'picasso', 'sunflower']
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    
+    context=False
     if os.path.isfile('static/files/input/input.jpeg'):
-                os.remove(os.path.join('static/files/input/input.jpeg'))
-    li = ['starry',  'wave', 'picasso', 'sunflower']
+        os.remove(os.path.join('static/files/input/input.jpeg'))
 
     if request.method == 'POST':
         file = request.files['file']
@@ -27,31 +28,39 @@ def index():
                 option = random.choice(li)
                 
             main(content_image=content_image,option=option)
+            return render_template('index.html', context=True)
+
 
         except:
-            return render_template('index.html', error='Please upload a file')
+            return render_template('index.html', error='Please upload a file', context=False)
     else:
         delete_files('static/files/output')
         
         
-    return render_template('index.html')
+    return render_template('index.html', context=True)
 
 
 @app.route('/video', methods=['GET', 'POST'])
 def video():
+    context = False
 
-    if os.path.isfile('static/files/input/input.jpeg'):
-                os.remove(os.path.join('static/files/input/input.jpeg'))
+    if os.path.isfile('static/files/input/input_video.mp4'):
+                os.remove(os.path.join('static/files/input/input_video.mp4'))
+
     if request.method == 'POST':
         delete_files('static/files/output/video')
         delete_files('static/files/output/format_video')
 
         file = request.files['file']
+        option = request.form['dropdown']
+        print(option)
         try:
             file.save('./static/files/input/input_video.mp4')
             frame()
             directory = 'static/files/output/video'
             i=0
+            if(option=='random'):
+                option = random.choice(li)
             for filename in os.listdir(directory):
                 f = os.path.join(directory, filename)
                 # checking if it is a file
@@ -60,19 +69,20 @@ def video():
                     print(f)
                     content_image = load_img(f)
                     i=i+1
-                    video_main(i=i,content_image=content_image)
+                    video_main(i=i,content_image=content_image,option=option)
             reframe()
+            return render_template('video.html', context=True)
 
             
 
         except:
-            return render_template('video.html', error='Please upload the video')
+            return render_template('video.html', error='Please upload the video', context=False)
     else:
         delete_files('static/files/output/video')
         delete_files('static/files/output/format_video')
         delete_files('static/files/output')
         
-    return render_template('video.html')
+    return render_template('video.html', context=False)
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
