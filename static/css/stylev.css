@@ -14,7 +14,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    /* overflow-y: hidden; */
+    overflow-y: hidden;
     text-align: center;
     /* background: linear-gradient(45deg, #d3d3d3, #800000);  */
 }
@@ -84,8 +84,8 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-#preview,
-#output {
+#preview-container,
+#output-container {
     width: auto;
     height: 22em;
     margin-bottom: -4px;
