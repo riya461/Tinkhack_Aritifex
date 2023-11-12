@@ -138,6 +138,8 @@ input[type="submit"]:hover {
     /* margin: 1em auto; */
     /* justify-content: space-around; */
     width: max-content;
+    margin: 0 2em;
+
     /* width: auto;
     height: 30em; */
     /* border-radius: 10px; */
@@ -151,6 +153,8 @@ input[type="submit"]:hover {
     /* margin: 1em auto; */
     /* justify-content: space-around; */
     width: max-content;
+    margin: 0 2em;
+
     /* width: auto;
     height: 30em; */
     /* border-radius: 10px; */
@@ -170,6 +174,8 @@ input[type="submit"]:hover {
     border:solid brown 10px;
     /* background-color: #834d4d; */
     /* display: none; */
+    margin: 0 2em;
+
 }
 
 .form1{
