@@ -48,7 +48,15 @@ button {
     background: linear-gradient(to bottom, #705434, #3b2a1e);
     transition: background 0.5s, color 0.5s;
 }
-
+a{
+    text-decoration: none;
+    color: black;
+    }
+    
+a:visited{
+    text-decoration: none;
+    color: white;
+}
 button:hover {
     background: linear-gradient(to bottom, #3b2a1e, #1f150d); 
     color: white;

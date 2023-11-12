@@ -8,9 +8,11 @@ from delf import delete_files
 app = Flask(__name__)
 li = ['starry',  'wave', 'picasso', 'sunflower']
 
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
+@app.route('/')
+def home():
+    return render_template('home.html')
+@app.route('/image', methods=['GET', 'POST'])
+def image():
 
     if request.method == 'POST':
         file = request.files['file']
@@ -46,13 +48,16 @@ def video():
         option = request.form['dropdown']
         print(option)
         try:
-            file.save('./static/files/input/input_video.mp4')
+            file.save('./static/files/input/input_video.gif')
             frame()
             directory = 'static/files/output/video'
             i=0
             if(option=='random'):
                 option = random.choice(li)
-            for filename in os.listdir(directory):
+            
+            for filename in os.listdir(directory) :
+                if filename.endswith(".md"):
+                    continue
                 f = os.path.join(directory, filename)
                 # checking if it is a file
                 print(f)
@@ -62,15 +67,15 @@ def video():
                     i=i+1
                     video_main(i=i,content_image=content_image,option=option)
             reframe()
-            return render_template('video.html', context='True')
+            return render_template('video.html', context=True)
 
             
 
         except:
-            return render_template('video.html', error='Please upload the video', context='False')
+            return render_template('video.html', error='Please upload the video',context=False)
     
         
-    return render_template('video.html', context='False')
+    return render_template('video.html', context=False)
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')

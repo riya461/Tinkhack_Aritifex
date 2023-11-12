@@ -18,7 +18,7 @@ def extract_frames(movie,times,video):
 
 def frame():
     
-    movie='static/files/input/input_video.mp4' 
+    movie='static/files/input/input_video.gif' 
     video='static/files/output/video' 
     clip = VideoFileClip(movie)
     

@@ -19,6 +19,18 @@ body {
     /* background: linear-gradient(45deg, #d3d3d3, #800000);  */
 }
 
+.back{
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    padding: 1em 1.5em;
+}
+
+.back-a{
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
 h1 {
     color: black;
 }
@@ -121,6 +133,20 @@ input[type="submit"]:hover {
 }
 
 .previewDiv{
+    /* flex: 1; */
+    /* padding: ; */
+    /* margin: 1em auto; */
+    /* justify-content: space-around; */
+    width: max-content;
+    /* width: auto;
+    height: 30em; */
+    /* border-radius: 10px; */
+    /* background-color: #834d4d; */
+    border:solid brown 10px;
+    display: none;
+}
+
+.previewDiv2{
     /* flex: 1; */
     /* padding: ; */
     /* margin: 1em auto; */
