@@ -1,6 +1,6 @@
 # Get your theme 
 
-### Team name - ARTIFECTS
+### Team name - ARTIFEX
 
 
 ## Description 
