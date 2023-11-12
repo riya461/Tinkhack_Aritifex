@@ -24,6 +24,8 @@ body {
     left: 1em;
     top: 1em;
     padding: 1em 1.5em;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .back-a{
@@ -37,9 +39,9 @@ h1 {
 
 form {
     /* background: url("../img/canvas-texture.avif");  */
-    background-color: #834d4d;
+    background-color: #421d1d;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 25em;
     height: fit-content;
@@ -144,7 +146,7 @@ input[type="submit"]:hover {
     height: 30em; */
     /* border-radius: 10px; */
     /* background-color: #834d4d; */
-    border:solid brown 10px;
+    border:solid #421d1d 10px;
     display: none;
 }
 .previewDiv2{
@@ -159,7 +161,7 @@ input[type="submit"]:hover {
     height: 30em; */
     /* border-radius: 10px; */
     /* background-color: #834d4d; */
-    border:solid brown 10px;
+    border:solid #421d1d 10px;
     /* display: none; */
 }
 
@@ -171,7 +173,7 @@ input[type="submit"]:hover {
     /* width: auto;
     height: 30em;  */
     /* border-radius: 10px; */
-    border:solid brown 10px;
+    border:solid #421d1d 10px;
     /* background-color: #834d4d; */
     /* display: none; */
     margin: 0 2em;
