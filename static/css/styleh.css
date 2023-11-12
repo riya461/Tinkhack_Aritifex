@@ -67,7 +67,7 @@ a:hover{
 }
 a:visited{
     text-decoration: none;
-    color: white;
+    /* color: white; */
 }
 button:hover {
     background: linear-gradient(to right, white, black); 
