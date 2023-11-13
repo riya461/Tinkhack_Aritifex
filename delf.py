@@ -1,8 +1,10 @@
 import os
-def delete_files(path):
-    for root, files in os.walk(path):
-        for file in files:
-            if file.endswith('.md'):
-                pass
-            else:
-                os.remove(os.path.join(root, file))
+import os
+
+def delete_files(directory_path):
+    for filename in os.listdir(directory_path):
+        if filename.endswith(".md") or filename.endswith(".gif"):
+            pass
+        else:
+            if os.path.isfile(os.path.join(directory_path, filename)):
+                os.remove(os.path.join(directory_path, filename))

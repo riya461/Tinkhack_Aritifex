@@ -22,8 +22,8 @@ h1 {
     text-align: center;
     color:black;
     font-size: 60px;
-    font-family: 'Inria Serif', serif;
-    font-weight: bold;
+    font-family: 'Abril Fatface', serif;
+    /* font-weight: bold; */
 }
 
 .buttons {
@@ -40,23 +40,43 @@ button {
     margin: 15px 15px auto;
     font-size: 24px;
     cursor: pointer;
-    border: solid;
-    border-radius: 20px;
-    outline: none;
-    color: white;
-    font-family: 'Abril Fatface', serif;
-    background: linear-gradient(to bottom, #705434, #3b2a1e);
+    /* border: solid; */
+    /* border-radius: 20px; */
+    /* outline: none; */
+    color: black;
+    font-family: 'Inria Serif', serif;
+    font-weight: bold;
+    /* background: linear-gradient(to bottom, #705434, #3b2a1e); */
+    border: none;
+    background-color: white;
+    border-radius: 2px;
+    /* margin: 50px; */
+    box-shadow:
+        /* -5px -5px 10px rgba(255, 255, 255, 0.5), */
+        5px 5px 10px rgba(0, 0, 0, 0.5);
     transition: background 0.5s, color 0.5s;
 }
+a{
+    text-decoration: none;
+    color: black;
+    transition: background 0.5s, color 0.5s;
+    }
 
+a:hover{
+    color:white;
+}
+a:visited{
+    text-decoration: none;
+    /* color: white; */
+}
 button:hover {
-    background: linear-gradient(to bottom, #3b2a1e, #1f150d); 
+    background: linear-gradient(to right, white, black); 
     color: white;
 }
 
-button:active {
+/* button:active {
     background: linear-gradient(to bottom, #1f150d, #0d0906); 
     color: white;
-}
+} */
 
 

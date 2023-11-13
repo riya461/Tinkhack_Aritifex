@@ -9,8 +9,9 @@
 
 <body>
   <!-- <h1>Image Upload Form</h1> -->
+  <button class="back"><a href="/" class="back-a">&larr;</a></button>
   <div class="pics">
-    <form action="/" method="post" enctype="multipart/form-data" class="form1">
+    <form action="/image" method="post" enctype="multipart/form-data" class="form1">
       <div class="Input">
       <div class="choose">
         <!-- <label for="imageUpload">Choose an image:</label> -->
@@ -40,12 +41,21 @@
     </form>
    
     <div class="images">
+        {% if context == false %}
 
-      <div class="previewDiv">
+        <div class="previewDiv">
+            <!-- <h2>Uploaded Image Preview</h2> -->
+            <img id="preview" src="" alt="Image Preview" />
+          </div>
+        {% endif %}
+
+        {% if context == true %}
+
+      <div class="previewDiv2">
         <!-- <h2>Uploaded Image Preview</h2> -->
-        <img id="preview" src="" alt="Image Preview" />
+        <img id="preview" src="../static/files/input/input.jpeg" alt="Image Preview" />
       </div>
-      {% if context == true %}
+
       <div class="outputDiv">
         <img id="output" src="../static/files/output/output.jpeg" alt="" />
       </div>

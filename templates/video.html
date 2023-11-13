@@ -10,12 +10,13 @@
 
 <body>
   <!-- <h1>Image Upload Form</h1> -->
+  <button class="back"><a href="/" class="back-a">&larr;</a></button>
   <div class="pics">
     <form action="/video" method="post" enctype="multipart/form-data" class="form1">
       <div class="Input">
       <div class="choose">
         <!-- <label for="imageUpload">Choose an image:</label> -->
-        <input type="file" id="mediaUpload" name="file" accept="image/*,video/*,audio/*"
+        <input type="file" id="mediaUpload" name="file" accept="image/*,video/*"
         onchange="previewMedia(this)" />
         <br />
         <!-- <label for="randomValues">Select a style:</label> -->
@@ -30,23 +31,35 @@
       <br />
       <input type="submit" value="" />
     </div>
+    {% if context == true %}
+
       <div class="box3">
-        <a href="../static/files/output/output.mp4" download="downloaded_file.mp4">
+        <a href="static\files\output\my_video.mp4" download="downloaded_file.mp4">
           <button type="button" class="download">DOWNLOAD FILE</button>
         </a>
       </div>
+      {% endif %}
     </form>
+    {% if context == false  %}
    
     <div class="images">
-
       <div class="previewDiv">
         <!-- <h2>Uploaded Image Preview</h2> -->
         <video id="preview-container" src="" alt="Media Preview"></video>
       </div>
+    </div>
+    {% endif %}
 
+      {% if context == true %}
+      <div class="images">
+      
       <div class="outputDiv">
-        <video id="output-container" src="../static/files/output/my_video.mp4"></video>
+        <video id="output-container" src="../static/files/output/my_video.mp4" autoplay loop></video>
       </div>
+    </div>
+
+    {% endif %}
+
     </div>
     
   </div>
