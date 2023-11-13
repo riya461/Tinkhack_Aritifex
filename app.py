@@ -23,15 +23,15 @@ def index():
                 option = random.choice(li)
                 
             main(content_image=content_image,option=option)
-            return render_template('index.html', context='True')
+            return render_template('index.html', context=True)
 
 
         except:
-            return render_template('index.html', error='Please upload a file', context='False')
+            return render_template('index.html', error='Please upload a file', context=False)
     
         
         
-    return render_template('index.html', context='False')
+    return render_template('index.html', context=False)
 
 
 @app.route('/video', methods=['GET', 'POST'])
